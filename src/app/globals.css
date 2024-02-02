@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
 	margin: 0;
 	padding: 0;
@@ -15,9 +11,16 @@
 
 body {
 	font-family: "Poppins", sans-serif;
+	overflow-x: hidden;
 }
 
 .login {
+	background-color: #fafbf4;
+	min-height: 100vh;
+	height: 100%;
+}
+
+.product-for-mind {
 	background-color: #fafbf4;
 	min-height: 100vh;
 	height: 100%;

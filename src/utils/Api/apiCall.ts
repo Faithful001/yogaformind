@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-export class ApiCall {
+class ApiCall {
 	//properties
 	private defaultHeaders: object = {
 		Accept: "application/vnd.api+json",
@@ -8,7 +8,7 @@ export class ApiCall {
 	};
 
 	//methods
-	async postRequest(
+	public async postRequest(
 		url: string,
 		body: object,
 		headers?: AxiosRequestConfig["headers"]
@@ -26,7 +26,10 @@ export class ApiCall {
 		}
 	}
 
-	async getRequest(url: string, headers?: AxiosRequestConfig["headers"]) {
+	public async getRequest(
+		url: string,
+		headers?: AxiosRequestConfig["headers"]
+	) {
 		try {
 			const response = await axios.get(url, {
 				...this.defaultHeaders,
@@ -40,3 +43,5 @@ export class ApiCall {
 		}
 	}
 }
+
+export default new ApiCall();

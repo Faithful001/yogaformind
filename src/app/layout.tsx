@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
+import { ToastContextProvider } from "@/contexts/ToastContext";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -20,12 +22,16 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head>
-				<link
+				{/* <link
 					rel="stylesheet"
 					href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-				/>
+				/> */}
 			</head>
-			<body className={poppins.className}>{children}</body>
+			<ToastContextProvider>
+				<ReactQueryProvider>
+					<body className={poppins.className}>{children}</body>
+				</ReactQueryProvider>
+			</ToastContextProvider>
 		</html>
 	);
 }
